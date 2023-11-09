@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <script src="farenheight_Celsius.js"></script>
+  </head>
+  <body>
+    <label for="degrees">Input(farenheight)</label>
+    <input type="text" id="inputFahrenheit" />
+    <div id="output"></div>
+    <button onclick="convertAndDisplay()">convert</button>
+    <p id="output"></p>
+    <script>
+      function convertToCelsius(Fahrenheit) {
+        return ((Fahrenheit - 32) * 5) / 9;
+      }
+      function createMessage(celsius, Fahrenheit) {
+        return (
+          "you entered " +
+          Fahrenheit +
+          " degrees Fahrenheit, which is " +
+          celsius +
+          " degrees celsius."
+        );
+      }
+      function convertAndDisplay() {
+        const inputFahrenheit =
+          document.getElementById("inputFahrenheit").value;
+        const convertedCelsius = convertToCelsius(parseFloat(inputFahrenheit));
+        const outputElement = document.getElementById("output");
+        outputElement.textContent = createMessage(
+          convertedCelsius,
+          parseFloat(inputFahrenheit)
+        );
+      }
+    </script>
+  </body>
+</html>
